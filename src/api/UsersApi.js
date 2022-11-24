@@ -1,4 +1,4 @@
-const BASE_SERVER_URL = 'http://localhost:3001';
+const BASE_URL = process.env.REACT_APP_BACKEND_BASE_SERVER_URL;
 
 export const createUserIfNotExist = async (user) => {
   const options = {
@@ -12,7 +12,7 @@ export const createUserIfNotExist = async (user) => {
       sub: user.sub
     })
   };
-  const response = await fetch(`${BASE_SERVER_URL}/users`, options);
+  const response = await fetch(`${BASE_URL}/users`, options);
   const result = await response.json();
 
   if (!result.success) {
@@ -36,7 +36,7 @@ export const createCardForUser = async (userId, card, condition, price) => {
       price: price,
     })
   };
-  const response = await fetch(`${BASE_SERVER_URL}/users/${userId}/cards`, options);
+  const response = await fetch(`${BASE_URL}/users/${userId}/cards`, options);
   const result = await response.json();
 
   if (!result.success) {
