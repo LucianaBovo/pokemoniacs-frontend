@@ -1,4 +1,4 @@
-const BASE_URL = process.env.REACT_APP_FRONTEND_BASE_SERVER_URL;
+const BASE_URL = process.env.REACT_APP_BACKEND_BASE_SERVER_URL;
 
 export const createUserIfNotExist = async (user) => {
   const options = {
