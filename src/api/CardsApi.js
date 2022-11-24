@@ -1,13 +1,14 @@
-const BASE_SERVER_URL = 'http://localhost:3001';
+
+const BASE_URL = process.env.REACT_APP_FRONTEND_BASE_SERVER_URL;
 
 export const getAvailableCards = async () => {
-  const response = await fetch(`${BASE_SERVER_URL}/cards/available`);
+  const response = await fetch(`${BASE_URL}/cards/available`);
   const result = await response.json();
   return result;
 }
 
 export const getCardById = async (id) => {
-  const response = await fetch(`${BASE_SERVER_URL}/cards/${id}`);
+  const response = await fetch(`${BASE_URL}/cards/${id}`);
   const result = await response.json();
   return result;
 }
