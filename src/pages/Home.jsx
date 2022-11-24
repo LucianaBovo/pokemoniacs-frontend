@@ -3,6 +3,8 @@ import Layout from "../components/layout/Layout";
 import AvailableCardList from "../components/pokemon/AvailableCardList";
 import * as CardsApi from "../api/CardsApi";
 
+import "./Home.css";
+ 
 const Home = () => {
   const [availableCards, setAvailableCards] = useState([]);
 
@@ -17,7 +19,7 @@ const Home = () => {
 
   return (
     <Layout>
-      <div>List of cards</div>
+      <h2 className="home__title">Check out our Available Cards!</h2>
       <div>
         <AvailableCardList cards={availableCards} />
       </div>

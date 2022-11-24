@@ -6,3 +6,11 @@
     display: flex;
     justify-content: space-between;
 }
+
+.header__logo {
+    display: flex;
+}
+
+.header__link {
+    text-decoration: none;
+}

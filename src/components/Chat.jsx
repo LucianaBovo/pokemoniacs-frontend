@@ -3,6 +3,8 @@ import io from "socket.io-client";
 import { useEffect, useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 
+const BASE_SERVER_URL = process.env.REACT_APP_BACKEND_BASE_SERVER_URL;
+
 let socket;
 
 const Chat = () => {
@@ -23,7 +25,7 @@ const Chat = () => {
 
   useEffect(() => {
     getAccessTokenSilently().then((accessToken) => {
-      socket = io.connect("http://localhost:3001", {
+      socket = io.connect(`${BASE_SERVER_URL}`, {
         query: { accessToken },
       });
 

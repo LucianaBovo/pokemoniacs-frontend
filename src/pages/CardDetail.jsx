@@ -4,6 +4,7 @@ import * as CardsApi from "../api/CardsApi";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 import { coinFormatter } from "../utils/helpers";
+import Chat from '../components/Chat'
 
 import "./CardDetail.css";
 
@@ -29,6 +30,11 @@ const CardDetail = () => {
         </div>
       </div> : <div>Loading...</div>
       }
+      <div>
+        <p>Contact seller</p>
+        <Chat />
+      </div>
+
     </Layout>
   );
 };
