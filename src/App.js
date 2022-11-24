@@ -13,12 +13,17 @@ import {
 import Home from './pages/Home';
 import AfterLogin from './pages/AfterLogin';
 import CardDetail from './pages/CardDetail';
+import MainPage from './components/authorization/MainPage';
 
 function App() {
   const router = createBrowserRouter([
     {
       path: "/",
       element: <Home />,
+    },
+    {
+      path: "/",
+      element: <MainPage />,
     },
     {
       path: "/afterlogin",
