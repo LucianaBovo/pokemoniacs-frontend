@@ -1,18 +1,15 @@
-import './App.css';
-import SearchForm from './components/SeachForm';
+import "./App.css";
+import SearchForm from "./components/SeachForm";
 // import LoginButton from './components/authorization/LoginButton';
 // import LogoutButton from './components/authorization/LogoutButton';
 // import Profile from './components/authorization/Profile';
 // import MainPage from './components/authorization/MainPage';
-// import Layout from './components/layout/Layout';
+import Layout from "./components/layout/Layout";
 // import Chat from './components/Chat';
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-import Home from './pages/Home';
-import AfterLogin from './pages/AfterLogin';
-import CardDetail from './pages/CardDetail';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Home from "./pages/Home";
+import AfterLogin from "./pages/AfterLogin";
+import CardDetail from "./pages/CardDetail";
 
 function App() {
   const router = createBrowserRouter([
@@ -30,7 +27,7 @@ function App() {
     },
     {
       path: "/searchform",
-      element: <SearchForm />
+      element: <SearchForm />,
     },
     // {
     //   path: '/chat',
@@ -40,7 +37,9 @@ function App() {
 
   return (
     <div className="App">
-      <RouterProvider router={router} />
+      <Layout>
+        <RouterProvider router={router} />
+      </Layout>
     </div>
   );
 }
