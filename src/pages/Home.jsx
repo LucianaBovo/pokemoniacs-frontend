@@ -16,12 +16,12 @@ const Home = () => {
   }, []);
 
   return (
-    <>
+    <Layout>
       <div>List of cards</div>
       <div>
         <AvailableCardList cards={availableCards} />
       </div>
-    </>
+    </Layout>
   );
 };
 

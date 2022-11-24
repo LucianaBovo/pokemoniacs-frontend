@@ -20,19 +20,16 @@ const CardDetail = () => {
   }, [id]);
 
   return (
-    <>
-      {cardDetail ? (
-        <div className="card-detail">
-          <img src={cardDetail.picture} alt={cardDetail.name} />
-          <div>
-            <h4>{coinFormatter(cardDetail.price)}</h4>
-            <p>{cardDetail.condition.replaceAll("_", " ")}</p>
-          </div>
+    <Layout>
+      {cardDetail ? <div className="card-detail">
+        <img src={cardDetail.picture} alt={cardDetail.name} />
+        <div>
+          <h4>{coinFormatter((cardDetail.price))}</h4>
+          <p>{(cardDetail.condition).replaceAll('_', ' ')}</p>
         </div>
-      ) : (
-        <div>Loading...</div>
-      )}
-    </>
+      </div> : <div>Loading...</div>
+      }
+    </Layout>
   );
 };
 
