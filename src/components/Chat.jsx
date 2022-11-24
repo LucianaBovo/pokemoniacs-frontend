@@ -1,13 +1,15 @@
 import React from "react";
 import io from "socket.io-client";
 import { useEffect, useState } from "react";
+import { useAuth0 } from "@auth0/auth0-react";
 
-const socket = io.connect("http://localhost:3002");
+let socket;
 
 const Chat = () => {
   const [room, setRoom] = useState("");
-  const [message, setMessage] = useState("");
-  const [messageReceived, setMessageReceived] = useState("");
+  const [newMessage, setNewMessage] = useState("");
+  const [messages, setMessages] = useState([]);
+  const { getAccessTokenSilently } = useAuth0();
 
   const joinRoom = () => {
     if (room !== "") {
@@ -16,15 +18,24 @@ const Chat = () => {
   };
 
   const sendMessage = () => {
-    socket.emit("send_message", { message, room });
+    socket.emit("send_message", { newMessage, room });
   };
 
   useEffect(() => {
-    socket.on("receive_message", (data) => {
-      setMessageReceived(data.message);
+    getAccessTokenSilently().then((accessToken) => {
+      socket = io.connect("http://localhost:3001", {
+        query: { accessToken },
+      });
+
+      socket.on("receive_message", (data) => {
+        setMessages([...messages, data]);
+      });
+
+      socket.on("connect_error", (error) => {
+        console.error(error);
+      });
     });
-    // eslint-disable-next-line 
-  }, [socket]);
+  }, []);
 
   return (
     <div>
@@ -38,12 +49,14 @@ const Chat = () => {
       <input
         placeholder="Message..."
         onChange={(event) => {
-          setMessage(event.target.value);
+          setNewMessage(event.target.value);
         }}
       />
-      <button onClick={sendMessage}> Send Message</button>
-      <h1> Message: </h1>
-      {messageReceived}
+      <button onClick={sendMessage}> Send Messages</button>
+      <h1> Messages: </h1>
+      {messages.map((m) => (
+        <h1>{m.message}</h1>
+      ))}
     </div>
   );
 };
