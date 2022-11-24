@@ -3,7 +3,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 import * as UsersApi from '../../api/UsersApi';
 import { useNavigate } from "react-router-dom";
 
-const BASE_URL = process.env.REACT_APP_BACKEND_BASE_SERVER_URL;
+const BASE_URL = process.env.REACT_APP_FRONTEND_BASE_SERVER_URL;
 
 const PlaceAdButton = () => {
     const { loginWithRedirect } = useAuth0();
