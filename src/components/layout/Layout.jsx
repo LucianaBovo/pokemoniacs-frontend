@@ -2,15 +2,17 @@ import React from "react";
 import Footer from "./Footer";
 import Header from "./Header";
 import { Outlet } from "react-router-dom";
-
+import { useAuth0 } from "@auth0/auth0-react";
 import "./Layout.css";
 
 const Layout = () => {
+  const { isAuthenticated } = useAuth0();
+
   return (
     <div className="layout">
-      <Header />
+      <Header isAuthenticated={isAuthenticated} />
       <div className="main-container">
-        <Outlet />
+        {isAuthenticated ? <Outlet /> : <h1>Please login</h1>}
       </div>
       <Footer />
     </div>
