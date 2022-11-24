@@ -22,7 +22,6 @@ const PlaceAdButton = () => {
       checkUser();
     }, [isAuthenticated, user, navigate]);
 
-
     return <button onClick={() => loginWithRedirect({ redirectUri: `${BASE_URL}/searchform` })}>Sell Card</button>;
 }
 
