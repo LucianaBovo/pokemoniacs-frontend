@@ -1,6 +1,7 @@
 import React from "react";
 import ChatMessage from "./ChatMessage";
 
+
 const ChatMessages = ({ user, toUser, messages }) => {
   return (
     <div className="container">
@@ -20,3 +21,4 @@ const ChatMessages = ({ user, toUser, messages }) => {
 };
 
 export default ChatMessages;
+
