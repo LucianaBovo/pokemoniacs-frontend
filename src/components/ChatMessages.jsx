@@ -1,5 +1,6 @@
 import React from "react";
-import ChatMessage from "./ChatMessages";
+import ChatMessage from "./ChatMessage";
+
 
 const ChatMessages = ({ user, toUser, messages }) => {
   return (
@@ -20,3 +21,4 @@ const ChatMessages = ({ user, toUser, messages }) => {
 };
 
 export default ChatMessages;
+

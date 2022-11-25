@@ -1,46 +1,26 @@
 import "./App.css";
 import SearchForm from "./components/SeachForm";
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-import Home from './pages/Home';
-import AfterLogin from './pages/AfterLogin';
-import CardDetail from './pages/CardDetail';
-import ChatPage from './pages/ChatPage';
-import MainPage from './components/authorization/MainPage';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import AfterLogin from "./pages/AfterLogin";
+import CardDetail from "./pages/CardDetail";
+import ChatPage from "./pages/ChatPage";
+import Layout from "./components/layout/Layout";
 
 function App() {
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Home />,
-    },
-    {
-      path: "/",
-      element: <MainPage />,
-    },
-    {
-      path: "/afterlogin",
-      element: <AfterLogin />,
-    },
-    {
-      path: "/cards/:id",
-      element: <CardDetail />,
-    },
-    {
-      path: "/searchform",
-      element: <SearchForm />
-    },
-    {
-      path: '/chat',
-      element: <ChatPage />
-    }
-  ]);
-
   return (
     <div className="App">
-      <RouterProvider router={router} />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="/afterlogin" element={<AfterLogin />} />
+            <Route path="/cards/:id" element={<CardDetail />} />
+            <Route path="/searchform" element={<SearchForm />} />
+            <Route path="/chat" element={<ChatPage />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
