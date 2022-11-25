@@ -1,22 +1,12 @@
 import React from "react";
-import ChatMessage from "./ChatMessage";
 
-const ChatMessages = ({ user, toUser, messages }) => {
+export const ChatMessage = ({ message }) => {
   return (
-    <div className="container">
-      <div className="row">
-        <h1>Messages to {toUser.name}</h1>
-        {messages.map((message, index) => {
-          return (
-            <div key={`message-${index}`}>
-              <ChatMessage user={user} toUser={toUser} message={message} />
-              <hr />
-            </div>
-          );
-        })}
-      </div>
+    <div>
+      <img src={message.fromUser.picture} alt="message" />: <h3>{message.fromUser.name}</h3>
+      <p>{message.message}</p>
     </div>
   );
 };
 
-export default ChatMessages;
+export default ChatMessage;
