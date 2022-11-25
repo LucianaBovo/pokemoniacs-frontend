@@ -11,7 +11,7 @@ const Home = () => {
   useEffect(() => {
     const fetchAvailableCards = async () => {
       const result = await CardsApi.getAvailableCards();
-      setAvailableCards(result);
+      if (!result.error) setAvailableCards(result);
     };
 
     fetchAvailableCards();
