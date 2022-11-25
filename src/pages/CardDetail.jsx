@@ -4,11 +4,13 @@ import * as CardsApi from "../api/CardsApi";
 import { Link, useParams } from "react-router-dom";
 import { useState } from "react";
 import { coinFormatter } from "../utils/helpers";
+import { useAuth0 } from "@auth0/auth0-react";
 
 import "./CardDetail.css";
 
 const CardDetail = () => {
   const [cardDetail, setCardDetail] = useState(null);
+  const { isAuthenticated } = useAuth0();
 
   const { id } = useParams();
   useEffect(() => {
@@ -31,7 +33,9 @@ const CardDetail = () => {
       }
       <div>
         <Link to="/chat">
+          {isAuthenticated ? 
           <div className="btn btn-outline-danger">Contact seller</div>
+          : null }
         </Link>
       </div>
 
