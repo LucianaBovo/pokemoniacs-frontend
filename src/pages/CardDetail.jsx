@@ -5,7 +5,6 @@ import { useState } from "react";
 import { coinFormatter } from "../utils/helpers";
 import { useAuth0 } from "@auth0/auth0-react";
 
-
 import "./CardDetail.css";
 
 const CardDetail = () => {
@@ -16,29 +15,30 @@ const CardDetail = () => {
   useEffect(() => {
     const fetchCard = async () => {
       const result = await CardsApi.getCardById(id);
+
       setCardDetail(result);
     };
     fetchCard();
   }, [id]);
 
+  if (!cardDetail) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <>
-      {cardDetail ? (
-        <div className="card-detail">
-          <img src={cardDetail.picture} alt={cardDetail.name} />
-          <div>
-            <h4>{coinFormatter(cardDetail.price)}</h4>
-            <p>{cardDetail.condition.replaceAll("_", " ")}</p>
-          </div>
+      <div className="card-detail">
+        <img src={cardDetail.picture} alt={cardDetail.name} />
+        <div>
+          <h4>{coinFormatter(cardDetail.price)}</h4>
+          <p>{cardDetail.condition.replaceAll("_", " ")}</p>
         </div>
-      ) : (
-        <div>Loading...</div>
-      )}
+      </div>
       <div>
-        <Link to="/chat">
-          {isAuthenticated ? 
-          <div className="btn btn-outline-danger">Contact seller</div>
-          : null }
+        <Link to={`/chat/${cardDetail.userId}`}>
+          {isAuthenticated ? (
+            <div className="btn btn-outline-danger">Contact seller</div>
+          ) : null}
         </Link>
       </div>
     </>
