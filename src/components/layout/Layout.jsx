@@ -1,16 +1,17 @@
 import React from "react";
 import Footer from "./Footer";
 import Header from "./Header";
+// import { Outlet } from "react-router-dom";
+
 import "./Layout.css";
-import { Outlet } from "react-router-dom";
 
 const Layout = ({ children }) => {
   return (
     <div className="layout">
       <Header />
-      <main className="main-container">
-        <Outlet />
-      </main>
+      <div className="main-container">
+        {/* {isAuthenticated ? <Outlet /> : <h1>Please login</h1>} */}
+      </div>
       <Footer />
     </div>
   );
