@@ -23,7 +23,6 @@ export const createUserIfNotExist = async (user) => {
 }
 
 export const createCardForUser = async (userId, card, condition, price) => {
-  console.log('this is inside createcardforuser', card.name, card.imageUrl, condition, price, userId)
   const options = {
     method: 'POST',
     headers: {
@@ -44,4 +43,23 @@ export const createCardForUser = async (userId, card, condition, price) => {
   }
 
   return 'Card was added successfully.';
+}
+
+export const deleteCardForUser = async (cardId, userId) => {
+  const response = await fetch(`${BASE_URL}/users/${userId}/cards/${cardId}`, {
+    method: 'DELETE',
+  });
+  const result = await response.json();
+
+  if (!result.success) {
+    return 'Some error occurred. Please Try again.';
+  }
+
+  return 'Card was deleted successfully.';
+}
+
+export const getUserCards = async (userId) => {
+  const response = await fetch(`${BASE_URL}/users/${userId}/cards`);
+  const result = await response.json();
+  return result;
 }

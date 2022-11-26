@@ -7,6 +7,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 
 import "./CardDetail.css";
+import Layout from "../components/layout/Layout";
 
 const CardDetail = () => {
   const [cardDetail, setCardDetail] = useState(null);
@@ -22,7 +23,7 @@ const CardDetail = () => {
   }, [id]);
 
   return (
-    <>
+    <Layout>
       {cardDetail ? (
         <div className="card-detail">
           <img src={cardDetail.picture} alt={cardDetail.name} />
@@ -41,7 +42,7 @@ const CardDetail = () => {
           : null }
         </Link>
       </div>
-    </>
+    </Layout>
   );
 };
 
