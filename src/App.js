@@ -11,16 +11,16 @@ import { useAuth0 } from "@auth0/auth0-react";
 import Login from "./pages/Login";
 
 const PrivateRoute = ({ pageComponent }) => {
-  const { isAuthenticated } = useAuth0();
+  const { isAuthenticated, isLoading } = useAuth0();
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!isAuthenticated) {
+    if (!isLoading && !isAuthenticated) {
       navigate('/login');
     }
-  }, [isAuthenticated, navigate]);
+  }, [isAuthenticated, isLoading]);
 
-  return isAuthenticated ? pageComponent : null;
+  return pageComponent;
 }
 
 function App() {
@@ -35,9 +35,9 @@ function App() {
           <Route path="/cards/:id" element={<CardDetail />} />
 
           {/* Private Routes */}
-          <Route path="/searchform" element={<PrivateRoute pageComponent={<SearchForm/>} />} />
-          <Route path="/chat" element={<PrivateRoute pageComponent={<ChatPage/>} />} />
-          <Route path="/profile" element={<PrivateRoute pageComponent={<Profile/>} />} />
+          <Route path="/searchform" element={<PrivateRoute pageComponent={<SearchForm />} />} />
+          <Route path="/chat" element={<PrivateRoute pageComponent={<ChatPage />} />} />
+          <Route path="/profile" element={<PrivateRoute pageComponent={<Profile />} />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -1,10 +1,9 @@
 import React from "react";
 import { useState } from "react";
 import PokeCard from "./PokeCard";
-import { useAuth0 } from "@auth0/auth0-react";
 import "./SearchForm.css";
+import Layout from "./layout/Layout";
 const SearchForm = () => {
-  const { isAuthenticated, user } = useAuth0();
   const [searchTerm, setSearchTerm] = useState("");
   const [cards, setCards] = useState([]);
 
@@ -27,7 +26,7 @@ const SearchForm = () => {
     getCards();
   };
   return (
-    <div>
+    <Layout>
       <div>
         <form className="app__searchForm" onSubmit={handleSubmit}>
           <input
@@ -45,7 +44,7 @@ const SearchForm = () => {
           })}
         </div>
       </div>
-    </div>
+    </Layout>
   );
 };
 

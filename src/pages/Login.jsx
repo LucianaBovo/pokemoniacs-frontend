@@ -1,15 +1,17 @@
 import React from "react";
-import Layout from "../components/layout/Layout";
 import LoginButton from "../components/authorization/LoginButton";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Login = () => {
+  const { user } = useAuth0();
+  console.log(user);
   return (
-    <Layout>
+    <div>
       <h2 className="home__title">Login</h2>
       <div>
         <LoginButton />
       </div>
-    </Layout>
+    </div>
   );
 };
 

@@ -20,6 +20,10 @@ const Profile = () => {
     fetchUserCards();
   }, []);
 
+  if (!user) {
+    console.log(user);
+    return null;
+  }
   return (
     <Layout>
       <img src={user.picture} alt={user.name} />
