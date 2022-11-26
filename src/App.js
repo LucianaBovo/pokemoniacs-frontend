@@ -1,23 +1,43 @@
 import "./App.css";
 import SearchForm from "./components/SeachForm";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import Home from "./pages/Home";
 import AfterLogin from "./pages/AfterLogin";
 import CardDetail from "./pages/CardDetail";
 import ChatPage from "./pages/ChatPage";
 import Profile from "./pages/Profile";
+import { useEffect } from "react";
+import { useAuth0 } from "@auth0/auth0-react";
+import Login from "./pages/Login";
+
+const PrivateRoute = ({ pageComponent }) => {
+  const { isAuthenticated } = useAuth0();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigate('/login');
+    }
+  }, [isAuthenticated, navigate]);
+
+  return isAuthenticated ? pageComponent : null;
+}
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/afterlogin" element={<AfterLogin />} />
-            <Route path="/cards/:id" element={<CardDetail />} />
-            <Route path="/searchform" element={<SearchForm />} />
-            <Route path="/chat" element={<ChatPage />} />
-            <Route path="/profile" element={<Profile/>} />
+          {/* Public Routes */}
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/afterlogin" element={<AfterLogin />} />
+          <Route path="/cards/:id" element={<CardDetail />} />
+
+          {/* Private Routes */}
+          <Route path="/searchform" element={<PrivateRoute pageComponent={<SearchForm/>} />} />
+          <Route path="/chat" element={<PrivateRoute pageComponent={<ChatPage/>} />} />
+          <Route path="/profile" element={<PrivateRoute pageComponent={<Profile/>} />} />
         </Routes>
       </BrowserRouter>
     </div>
