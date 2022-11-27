@@ -23,6 +23,7 @@ const Header = () => {
         </div>
       </Link>
       {/* <ChatButton /> */}
+      {/* <PokeCategory /> */}
       {isAuthenticated && <PlaceAd />}
       {isAuthenticated && (
         <Link to="/chat">
