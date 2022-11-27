@@ -1,24 +1,25 @@
-import React from 'react';
-import { useNavigate } from "react-router-dom";
+import React, { useEffect } from 'react';
 import { coinFormatter } from '../../utils/helpers';
+import * as  UsersApi from '../../api/UsersApi';
 
 import './UserCard.css';
 
-const UserCard = ({ card }) => {
-  const navigate = useNavigate();
+const UserCard = ({ card, removeCard }) => {
 
-  const handleClick = () => {
-    navigate(`/cards/${card.id}`);
-  }
+  useEffect(() => {
+    const userId = window.localStorage.getItem('userId');
+    UsersApi.getUserCards(userId);
+  }, [])
+
 
   return (
-    <div className="user-card" onClick={handleClick}>
+    <div className="user-card">
       <img src={card.picture} alt={card.name} />
       <h3>{card.name}</h3>
       <div className='price-container'>
         <h4>{coinFormatter((card.price))}</h4>
       </div>
-      <button>delete card</button>
+      <button onClick={() => removeCard(card.id)}>delete card</button>
     </div>
   )
 }

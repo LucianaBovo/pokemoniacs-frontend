@@ -28,6 +28,9 @@ const Header = () => {
           <button className="btn btn-outline-danger">Messages</button>
         </Link>
       )}
+      <Link to="/profile">
+        <button>my Profile</button>
+      </Link>
       <AuthBox />
     </div>
   );
