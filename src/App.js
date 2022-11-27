@@ -18,6 +18,7 @@ const PrivateRoute = ({ pageComponent }) => {
     if (!isLoading && !isAuthenticated) {
       navigate('/login');
     }
+    // eslint-disable-next-line
   }, [isAuthenticated, isLoading]);
 
   return pageComponent;
