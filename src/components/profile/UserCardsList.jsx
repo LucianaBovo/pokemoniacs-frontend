@@ -1,7 +1,6 @@
 import React from 'react'
 import UserCard from './UserCard';
 
-
 import "./UserCardsList.css";
 
 const UserCardsList = ({ cards, removeCard }) => {
@@ -12,7 +11,10 @@ const UserCardsList = ({ cards, removeCard }) => {
   return (
     <div className="user-card-list">
       {cards.map((card) => {
-        return <UserCard card={card} key={card.id} removeCard={removeCard}/>
+        return <UserCard
+          card={card}
+          key={card.id}
+          onRemoveCard={removeCard} />
       })}
     </div>
   )
