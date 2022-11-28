@@ -6,3 +6,9 @@
 .unlogged-box {
   
 }
+
+.log-button {
+  background: none;
+  border: none;
+  color: #797B7D;
+}

@@ -12,9 +12,9 @@ const PokeCard = ({ card }) => {
 
     return (
         <div className='poke-card' key={card.id}>
-            <img src={card.imageUrl} alt="" onClick={handleClick} />
+            <img src={card.imageUrl} alt={card.name} onClick={handleClick} />
             <div className='poke-card-body'>
-                {visible ? <CardInfo card={card} /> : null}
+                {visible ? <CardInfo card={card} visible={visible} setVisible={setVisible}/> : null}
                 {/* <h2>{ card.name}</h2> */}
                 <p>{card.description}</p>
             </div>
