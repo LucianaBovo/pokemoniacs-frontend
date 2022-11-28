@@ -10,9 +10,9 @@ const SearchForm = () => {
   const [category, setCategory] = useState([])
   const getCards = async () => {
     try {
-      if (searchTerm !== "") {
+      if (searchTerm !== " ") {
         const response = await fetch(
-          `https://api.pokemontcg.io/v1/cards?name=${searchTerm}&types=${category.join(',') || ''}`
+          `https://api.pokemontcg.io/v1/cards?name=${searchTerm}&types=${category || ''}`
         );
         const data = await response.json();
         console.log(data);
@@ -28,11 +28,10 @@ const SearchForm = () => {
   };
   const handleCategoryChange = e => {
     const { value, checked } = e.target;
-
     if (checked) {
       setCategory(current => [...current, value]);
     } else {
-      setCategory(category.filter(type => type !== value));
+      setCategory(category.filter(cat => cat !== value));
     }
   };
   return (
@@ -48,13 +47,13 @@ const SearchForm = () => {
           />
           <input className="app__submit" type="submit" value="Search" />
         </form>
+        <PokeCategory onInputChange={handleCategoryChange}/>
         <div className="app__cards">
           {cards.map((card, index) => {
             return <PokeCard card={card} key={index} />;
           })}
         </div>
-        <PokeCategory onInputChange={handleCategoryChange}/>
-      </div>
+        </div>
     </Layout>
   );
 };

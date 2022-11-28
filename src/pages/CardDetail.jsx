@@ -11,7 +11,6 @@ import Layout from "../components/layout/Layout";
 const CardDetail = () => {
   const [cardDetail, setCardDetail] = useState(null);
   const { isAuthenticated } = useAuth0();
-
   const { id } = useParams();
   useEffect(() => {
     const fetchCard = async () => {
@@ -25,7 +24,6 @@ const CardDetail = () => {
   if (!cardDetail) {
     return <div>Loading...</div>;
   }
-
   return (
     <Layout>
       <div className="card-detail">

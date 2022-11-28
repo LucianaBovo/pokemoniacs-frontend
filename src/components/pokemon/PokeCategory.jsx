@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react'
-
-const PokeCategory = ( {onInputChange}) => {
+import './PokeCategory.css'
+const PokeCategory = ({ onInputChange }) => {
     const [categories, setCategories] = useState([]);
     useEffect(() => {
         const getCategories = async () => {
             try {
                 const categories = await fetch('https://api.pokemontcg.io/v2/types');
                 const results = await categories.json();
-                console.log(results.data)
-                if(results.data !== 'undefined')
-                setCategories(results.data);
+                console.log('from categories..', results.data)
+                if (results.data !== 'undefined')
+                    setCategories(results.data);
             }
             catch (err) {
                 console.log(err)
@@ -18,21 +18,19 @@ const PokeCategory = ( {onInputChange}) => {
         getCategories()
     }, [])
 
-
-
-
-    //     const res = fetch('https://api.pokemontcg.io/v2/types');
-
-    //    res.then(data =>(data.json())).then(res => console.log(res.data))
-
     return (
-       
         <div>
+            {/* <select onChange={onInputChange} > */}
             {categories.map((category, index) =>
-<input key={index} type="text"  name= "pokeCategory"  value={category} onChange={onInputChange} />
-                )}
+                <label key={index} className='pokeCategory'>
+                    <span>{category}</span>
+                    {/* // <option key = {index} >{category} */}
+                    <input type="checkbox" name="pokeCategory" value={category} onChange={onInputChange} />
+                </label>
+                // </option>
+            )}
+            {/* </select> */}
         </div>
-       
     )
 }
 
