@@ -6,6 +6,7 @@ import { coinFormatter } from "../utils/helpers";
 import { useAuth0 } from "@auth0/auth0-react";
 
 import "./CardDetail.css";
+import Layout from "../components/layout/Layout";
 
 const CardDetail = () => {
   const [cardDetail, setCardDetail] = useState(null);
@@ -26,14 +27,15 @@ const CardDetail = () => {
   }
 
   return (
-    <>
-      <div className="card-detail">
-        <img src={cardDetail.picture} alt={cardDetail.name} />
-        <div>
-          <h4>{coinFormatter(cardDetail.price)}</h4>
-          <p>{cardDetail.condition.replaceAll("_", " ")}</p>
+    <Layout>
+      {cardDetail ? (
+        <div className="card-detail">
+          <img src={cardDetail.picture} alt={cardDetail.name} />
+          <div>
+            <h4>{coinFormatter(cardDetail.price)}</h4>
+            <p>{cardDetail.condition.replaceAll("_", " ")}</p>
+          </div>
         </div>
-      </div>
       <div>
         <Link to={`/chat/${cardDetail.userId}`}>
           {isAuthenticated ? (
@@ -41,7 +43,7 @@ const CardDetail = () => {
           ) : null}
         </Link>
       </div>
-    </>
+    </Layout>
   );
 };
 
