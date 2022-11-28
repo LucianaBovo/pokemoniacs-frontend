@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import Home from "./pages/Home";
 import AfterLogin from "./pages/AfterLogin";
 import CardDetail from "./pages/CardDetail";
+import ChatRoomPage from "./pages/ChatRoomPage";
 import ChatPage from "./pages/ChatPage";
 import Profile from "./pages/Profile";
 import { useEffect } from "react";
