@@ -63,3 +63,26 @@ export const getUserCards = async (userId) => {
   const result = await response.json();
   return result;
 }
+
+export const updateCardForUser = async (userId, cardId, status, condition, price) => {
+  const options = {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      status: status,
+      condition: condition,
+      price: price
+    })
+  };
+  const response = await fetch(`${BASE_URL}/users/${userId}/cards/${cardId}`, options);
+  const result = await response.json();
+
+  if (!result.success) {
+    return 'Some error occurred. Please Try again.';
+  }
+
+  return result.updatedCard;
+
+}
