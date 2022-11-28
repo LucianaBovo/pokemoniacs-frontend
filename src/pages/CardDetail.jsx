@@ -28,23 +28,15 @@ const CardDetail = () => {
 
   return (
     <Layout>
-      {cardDetail ? (
-        <div className="card-detail">
+      <div className="card-detail">
           <img src={cardDetail.picture} alt={cardDetail.name} />
           <div>
             <h4>{coinFormatter(cardDetail.price)}</h4>
             <p>{cardDetail.condition.replaceAll("_", " ")}</p>
           </div>
-        </div>
-      <div>
-        <Link to={`/chat/${cardDetail.userId}`}>
-          {isAuthenticated ? (
-            <div className="btn btn-outline-danger">Contact seller</div>
-          ) : null}
-        </Link>
-      </div>
-    </Layout>
-  );
+          <Link to={`/chat/${cardDetail.userId}`}> {isAuthenticated ? <div className="btn btn-outline-danger">Contact seller</div> : null} </Link>
+          </div>
+        </Layout>
+    );
 };
-
 export default CardDetail;
