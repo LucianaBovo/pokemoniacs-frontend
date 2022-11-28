@@ -1,16 +1,14 @@
 import React from "react";
 import ChatMessage from "./ChatMessage";
 
-
-const ChatMessages = ({ user, toUser, messages }) => {
+const ChatMessages = ({ messages }) => {
   return (
     <div className="container">
       <div className="row">
-        <h1>Messages to {toUser.name}</h1>
         {messages.map((message, index) => {
           return (
             <div key={`message-${index}`}>
-              <ChatMessage user={user} toUser={toUser} message={message} />
+              <ChatMessage message={message} />
               <hr />
             </div>
           );
@@ -21,4 +19,3 @@ const ChatMessages = ({ user, toUser, messages }) => {
 };
 
 export default ChatMessages;
-
