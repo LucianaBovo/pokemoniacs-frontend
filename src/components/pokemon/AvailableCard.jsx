@@ -6,25 +6,25 @@ import './AvailableCard.css';
 
 const AvailableCard = ({ card }) => {
   const navigate = useNavigate();
-  const [marketPrice, setMarketPrice] = useState('');
+  // const [marketPrice, setMarketPrice] = useState('');
   // const [searchTerm, setSearchTerm] = useState("");
-  useEffect(() => {
-    const getMarketPrice = async () => {
-      try {
-        const response = await fetch(
-          `https://api.pokemontcg.io/v2/cards?name=${card.name}`
-        );
-        const data = await response.json();
-        const holofoil = data.data.map(item => (item.tcgplayer.prices.holofoil));
-        if (holofoil !== 'undefined') {
-          setMarketPrice(holofoil.market)
-        }
-      } catch (err) {
-        console.log(err)
-      }
-    }
-    getMarketPrice();
-  })
+  // useEffect(() => {
+  //   const getMarketPrice = async () => {
+  //     try {
+  //       const response = await fetch(
+  //         `https://api.pokemontcg.io/v2/cards?name=${card.name}`
+  //       );
+  //       const data = await response.json();
+  //       const holofoil = data.data.map(item => (item.tcgplayer.prices.holofoil));
+  //       if (holofoil !== 'undefined') {
+  //         setMarketPrice(holofoil.market)
+  //       }
+  //     } catch (err) {
+  //       console.log(err)
+  //     }
+  //   }
+  //   getMarketPrice();
+  // }, [])
 
   const handleClick = () => {
     navigate(`/cards/${card.id}`);
