@@ -59,7 +59,7 @@ const UserCard = ({ card, onRemoveCard }) => {
             Close
           </Button>
           <Button variant="outline-danger" onClick={() => onRemoveCard(card.id)}>
-            Save Changes
+            Confirm
           </Button>
         </Modal.Footer>
       </Modal>
@@ -78,7 +78,7 @@ const UserCard = ({ card, onRemoveCard }) => {
             <label htmlFor="edit-input-price">Edit price:</label>
             <input
               id="edit-input-price"
-              type="text"
+              type="number"
               placeholder="Enter price"
               onChange={handlePrice}
               value={price}
@@ -93,7 +93,7 @@ const UserCard = ({ card, onRemoveCard }) => {
             <label htmlFor="edit-select-condition">Edit condition:</label>
             <select id="edit-select-condition" onChange={handleCondition} value={condition}>
               <option value="">Select the card condition</option>
-              <option value="NEW">New</option>
+              <option value="NEW">Mint</option>
               <option value="AS_GOOD_AS_NEW">As good as new</option>
               <option value="USED">Used</option>
             </select>
@@ -102,7 +102,7 @@ const UserCard = ({ card, onRemoveCard }) => {
         </Modal.Body>
         <Modal.Footer>
           <Button variant="outline-secondary" onClick={handleEditClose}>Cancel</Button>
-          <Button variant="outline-danger" disabled={!price} onClick={(e) => handleUpdate(e)} type="submit">Confirm</Button>
+          <Button variant="outline-danger" disabled={!price} onClick={(e) => handleUpdate(e)} type="submit">Save Changes</Button>
         </Modal.Footer>
       </Modal>
       {/* modal for editing information */}
