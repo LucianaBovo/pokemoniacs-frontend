@@ -11,9 +11,9 @@ const SearchForm = () => {
 
   const getCards = async () => {
     try {
-      if (searchTerm !== "") {
+      if (searchTerm !== " ") {
         const response = await fetch(
-          `https://api.pokemontcg.io/v1/cards?name=${searchTerm}&types=${category || ''}`
+          `https://api.pokemontcg.io/v1/cards?name=${searchTerm}&types=${category.join(',') || ''}`
         );
         const data = await response.json();
         console.log(data);
@@ -55,6 +55,7 @@ const SearchForm = () => {
             return <PokeCard card={card} key={index} />;
           })}
         </div>
+
       </div>
     </Layout>
   );
