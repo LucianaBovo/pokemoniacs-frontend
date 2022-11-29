@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import * as UsersApi from "../api/UsersApi";
 import Alert from 'react-bootstrap/Alert';
 
-
 const CardInfo = ({ card, visible, setVisible }) => {
   const [price, setPrice] = useState("");
   const [condition, setCondition] = useState("");

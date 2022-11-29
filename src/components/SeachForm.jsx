@@ -24,10 +24,11 @@ const SearchForm = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    getCards();
+    await getCards();
   };
+
   const handleCategoryChange = e => {
     const { value, checked } = e.target;
     if (checked) {

@@ -20,12 +20,20 @@
 
 .available-card-image {
   width: 330px;
-  height:495px;
+  height: 495px;
 }
 
 .available-card-price-container {
   display: flex;
   justify-content: flex-end;
+}
+
+.h4-card-name {
+  margin: 8px;
+}
+
+.h5-price {
+  margin-top: 0;
 }
 
 @media screen and (min-width: 600px) { 
