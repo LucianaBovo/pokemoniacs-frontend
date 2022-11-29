@@ -5,7 +5,6 @@ import AuthBox from "../authorization/AuthBox";
 import PlaceAd from "../authorization/PlaceAdButton";
 // eslint-disable-next-line
 import PokeCategory from "../pokemon/PokeCategory";
-// import ChatButton from '../authorization/ChatButton';
 // eslint-disable-next-line
 import { Nav, Navbar, NavDropdown } from "react-bootstrap";
 
@@ -33,9 +32,13 @@ const Header = () => {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto navbar__desktop">
             <Nav.Link href="/chat">Messages</Nav.Link>
-            <Nav.Link href="/searchform"><PlaceAd /></Nav.Link>
+            <Nav.Link href="/searchform">
+              <PlaceAd />
+            </Nav.Link>
             <Nav.Link href="/profile">my Profile</Nav.Link>
-            <Nav.Link href="/login"><AuthBox /></Nav.Link>
+            <Nav.Link href="/login">
+              <AuthBox />
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
