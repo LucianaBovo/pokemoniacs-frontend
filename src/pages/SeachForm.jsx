@@ -1,9 +1,11 @@
 import React from "react";
 import { useState } from "react";
-import PokeCard from "./PokeCard";
+import PokeCard from "../components/PokeCard";
 import "./SearchForm.css";
-import Layout from "./layout/Layout";
-import PokeCategory from "./pokemon/PokeCategory";
+import Layout from "../components/layout/Layout";
+import PokeCategory from "../components/pokemon/PokeCategory";
+import { ReactComponent as SearchIcon } from '../assets/searchIcon2.svg';
+
 const SearchForm = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [cards, setCards] = useState([]);
@@ -39,16 +41,18 @@ const SearchForm = () => {
   };
   return (
     <Layout>
-      <div>
-        <form className="app__searchForm" onSubmit={handleSubmit}>
+      <div className="searchform">
+        <form className="searchform__form" onSubmit={handleSubmit}>
           <input
-            className="text-input"
-            type="text-input"
-            placeholder="search for cards"
-            value={searchTerm}
+            type="text"
+            className="form-control search-home-input"
+            placeholder="search for cards..."
             onChange={(e) => setSearchTerm(e.target.value)}
+            value={searchTerm}
           />
-          <input className="app__submit" type="submit" value="Search" />
+          <button type="submit" className="home-search-form-button btn btn-danger">
+            <SearchIcon width={24} height={24} />
+          </button>
         </form>
         <PokeCategory onInputChange={handleCategoryChange}/>
         <div className="app__cards">

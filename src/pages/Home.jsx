@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import AvailableCardList from "../components/pokemon/AvailableCardList";
 import * as CardsApi from "../api/CardsApi";
-import { ReactComponent as SearchIcon } from './assets/searchIcon2.svg';
+import { ReactComponent as SearchIcon } from '../assets/searchIcon2.svg';
 import Layout from "../components/layout/Layout";
 
 import "./Home.css";
@@ -22,6 +22,7 @@ const Home = () => {
 
   useEffect(() => {
     fetchAvailableCards();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleInputChange = (e) => {

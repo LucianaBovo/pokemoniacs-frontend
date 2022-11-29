@@ -15,7 +15,7 @@
   }
 }
 
-@media screen and (min-width: 1000px) { 
+@media screen and (min-width: 1200px) { 
   /* desktop */
   .available-card-list {
     grid-template-columns: 1fr 1fr 1fr 1fr;

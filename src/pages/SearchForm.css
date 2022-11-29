@@ -1,0 +1,14 @@
+.app__cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.searchform {
+  margin: 16px; 
+}
+
+.searchform__form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

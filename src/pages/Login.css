@@ -1,0 +1,27 @@
+.login-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 300px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-top: -60px;
+}
+
+.login__title {
+  margin-top: -20px;
+  margin-bottom: 10px;
+}
+
+.logo-img {
+  margin-bottom: 20px;
+}

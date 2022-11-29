@@ -1,5 +1,24 @@
+.pokemon-categories {
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+  margin-bottom: 20px;
+}
+
 .pokeCategory {
-    display: flex;
-/* grid-template-columns: 1fr 1fr 1fr; */
-justify-content:flex-start
+  display: flex;
+  /* grid-template-columns: 1fr 1fr 1fr; */
+  justify-content: flex-start;
+  margin-right: 10px;
+}
+
+.pokeCategory span {
+  margin-left: 2px;
+}
+
+@media screen and (min-width: 1200px) { 
+  /* desktop */
+  .pokemon-categories {
+    /* max-width: 1200px; */
+  }
 }

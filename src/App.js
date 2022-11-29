@@ -1,5 +1,5 @@
 import "./App.css";
-import SearchForm from "./components/SeachForm";
+import SearchForm from "./pages/SeachForm";
 import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import Home from "./pages/Home";
 import AfterLogin from "./pages/AfterLogin";
@@ -41,11 +41,11 @@ function App() {
             path="/searchform"
             element={<PrivateRoute pageComponent={<SearchForm />} />}
           />
-          <Route path="/chat/:userId" element={<ChatRoomPage />} />
           <Route
             path="/chat"
             element={<PrivateRoute pageComponent={<ChatPage />} />}
           />
+          <Route path="/chat/:userId" element={<ChatRoomPage />} />
           <Route
             path="/profile"
             element={<PrivateRoute pageComponent={<Profile />} />}

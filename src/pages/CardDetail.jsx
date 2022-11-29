@@ -8,9 +8,9 @@ import Layout from "../components/layout/Layout";
 import ChatButton from "../components/authorization/ChatButton";
 import Table from 'react-bootstrap/Table';
 import Badge from 'react-bootstrap/Badge';
+import { Spinner } from "react-bootstrap";
 
 import "./CardDetail.css";
-import { Spinner } from "react-bootstrap";
 
 const CardDetail = () => {
   const [cardDetails, setCardDetail] = useState(null);
