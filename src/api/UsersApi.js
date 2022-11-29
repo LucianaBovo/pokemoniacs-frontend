@@ -34,7 +34,8 @@ export const createCardForUser = async (userId, card, condition, price) => {
       condition: condition,
       price: price,
       types: card.types,
-      series: card.series
+      series: card.series,
+      apiId: card.id,
     })
   };
   const response = await fetch(`${BASE_URL}/users/${userId}/cards`, options);
