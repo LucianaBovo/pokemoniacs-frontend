@@ -19,7 +19,6 @@ const AvailableCard = ({ card }) => {
         <h4>{coinFormatter((card.price))}</h4>
       </div>
       <div>
-        
       </div>
     </div>
   )
