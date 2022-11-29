@@ -28,9 +28,7 @@ const Home = () => {
         </form>
       </div>
       <h2 className="home__title">Check out our Available Cards!</h2>
-      <div>
-        <AvailableCardList cards={availableCards} />
-      </div>
+      <AvailableCardList cards={availableCards} />
     </Layout>
   );
 };
