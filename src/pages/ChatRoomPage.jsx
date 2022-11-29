@@ -6,6 +6,7 @@ import ChatMessages from "../components/ChatMessages";
 import ChatBar from "../components/ChatBar";
 import { useParams } from "react-router-dom";
 import { getChatRoomMessages } from "../api/ChatApi";
+import Layout from "../components/layout/Layout";
 
 const ChatRoomPage = () => {
   const { getAccessTokenSilently } = useAuth0();
@@ -62,11 +63,11 @@ const ChatRoomPage = () => {
   }, [socket, messages, userId]);
 
   return (
-    <>
+    <Layout>
       <ChatBar onSendMessage={(message) => sendMessage(message)} />
       <hr />
       <ChatMessages messages={messages} />
-    </>
+    </Layout>
   );
 };
 
