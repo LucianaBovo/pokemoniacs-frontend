@@ -31,15 +31,18 @@ useEffect(() => {
   }
 
   return (
-    <div className="available-card" onClick={handleClick}>
+    <div className="available-card-container" onClick={handleClick}>
+      <div className="available-card-information">
       <img src={card.picture} alt={card.name} />
-      <h3>{card.name}</h3>
-      <div className='price-container'>
+        <h3>{card.name}</h3>
+        <div className="available-card-price-container">
         <h4>{coinFormatter((card.price))}</h4>
+        </div>
+      </div>
+      {/* <div className='price-container'> */}
+       
         {/* {marketPrice} */}
-      </div>
-      <div>
-      </div>
+      {/* </div> */}
     </div>
   )
 }

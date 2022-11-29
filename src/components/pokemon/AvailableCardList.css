@@ -1,11 +1,31 @@
 .available-card-list {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 16px;
 }
 
 .price-container {
   display: flex;
   justify-content: flex-start;
-  margin-left: 8px;
+  /* margin-left: 8px; */
+}
+
+
+@media screen and (min-width: 600px) { 
+  /* tablet */
+  .available-card-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  
+}
+
+@media screen and (min-width: 1000px) { 
+  /* desktop */
+  .available-card-list {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 32px;
+  }
+  
 }
