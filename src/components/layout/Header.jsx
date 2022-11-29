@@ -1,4 +1,3 @@
-import PlaceAd from "../authorization/PlaceAdButton";
 import { Button, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { useAuth0 } from "@auth0/auth0-react";
 import LoginButton from "../authorization/LoginButton";
