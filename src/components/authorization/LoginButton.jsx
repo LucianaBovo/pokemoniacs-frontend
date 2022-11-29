@@ -6,7 +6,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 const LoginButton = () => {
   const { loginWithRedirect } = useAuth0();
   return (
-    <button
+    <button className="log-button"
       onClick={() =>
         loginWithRedirect({
           redirectUri: `${window.location.origin}/afterlogin`,

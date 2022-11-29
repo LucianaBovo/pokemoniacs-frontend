@@ -8,12 +8,11 @@ const SearchForm = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [cards, setCards] = useState([]);
   const [category, setCategory] = useState([])
+
   const getCards = async () => {
     try {
       if (searchTerm !== "") {
-        const response = await fetch(
-          `https://api.pokemontcg.io/v1/cards?name=${searchTerm}&types=${category.join(',') || ''}`
-        );
+        const response = await fetch(`https://api.pokemontcg.io/v1/cards?name=${searchTerm}&types=${category.join(',') || ''}`);
         const data = await response.json();
         console.log(data);
         setCards(data.cards);
@@ -22,6 +21,7 @@ const SearchForm = () => {
       console.log(err);
     }
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     getCards();
@@ -53,7 +53,7 @@ const SearchForm = () => {
             return <PokeCard card={card} key={index} />;
           })}
         </div>
-        <PokeCategory onInputChange={handleCategoryChange}/>
+        <PokeCategory onInputChange={handleCategoryChange} />
       </div>
     </Layout>
   );

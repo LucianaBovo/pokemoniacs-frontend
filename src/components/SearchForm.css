@@ -2,3 +2,9 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
+
+.log-button {
+  background: none;
+  border: none;
+  color: #797B7D;
+}

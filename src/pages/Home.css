@@ -1,3 +1,21 @@
 .home__title {
   margin: 36px;
 }
+
+.home__search-bar {
+  margin: 16px; 
+}
+.home-search-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-home-input {
+  width: 40%;
+}
+
+.home-search-form-button {
+
+  margin-left: 4px;
+}

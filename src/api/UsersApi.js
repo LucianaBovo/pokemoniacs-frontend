@@ -33,6 +33,8 @@ export const createCardForUser = async (userId, card, condition, price) => {
       picture: card.imageUrl,
       condition: condition,
       price: price,
+      types: card.types,
+      series: card.series
     })
   };
   const response = await fetch(`${BASE_URL}/users/${userId}/cards`, options);

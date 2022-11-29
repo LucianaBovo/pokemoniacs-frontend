@@ -18,6 +18,8 @@ const AvailableCard = ({ card }) => {
       <div className='price-container'>
         <h4>{coinFormatter((card.price))}</h4>
       </div>
+      <div>
+      </div>
     </div>
   )
 }
