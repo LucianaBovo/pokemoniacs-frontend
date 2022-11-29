@@ -108,7 +108,23 @@ const UserCard = ({ card, onRemoveCard }) => {
         </Modal.Footer>
       </Modal>
       {/* modal for editing information */}
-      <div>
+
+      <div className="user-card-container">
+        <div className="user-card-information">
+          <img className="user-card-image" src={card.picture} alt={card.name} />
+          <h3>{card.name}</h3>
+          <div className="user-card-price-container">
+              <h4>{coinFormatter((card.price))}</h4>
+          </div>
+          <div className='user-card-buttons-container'>
+            <Button variant="outline-secondary" onClick={handleEditShow} className="user-card-edit-button">Edit</Button>
+            <Button variant="outline-danger" onClick={handleDeleteShow} className="user-card-delete-button">Delete</Button>
+          </div>
+        </div>
+      </div>
+
+
+      {/* <div>
         <img src={card.picture} alt={card.name} />
         <h3>{card.name}</h3>
         <div className='price-container'>
@@ -118,7 +134,7 @@ const UserCard = ({ card, onRemoveCard }) => {
           <Button variant="outline-secondary" onClick={handleEditShow} className="user-card-edit-button">Edit</Button>
           <Button variant="outline-danger" onClick={handleDeleteShow} className="user-card-delete-button">Delete</Button>
         </div>
-      </div>
+      </div> */}
     </div>
   )
 }

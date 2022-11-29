@@ -35,7 +35,7 @@ const Header = () => {
             <Nav.Link href="/searchform">
               <PlaceAd />
             </Nav.Link>
-            <Nav.Link href="/profile">my Profile</Nav.Link>
+            <Nav.Link href="/profile">Profile</Nav.Link>
             <Nav.Link href="/login">
               <AuthBox />
             </Nav.Link>
