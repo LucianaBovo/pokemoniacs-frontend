@@ -7,7 +7,7 @@ const LogoutButton = () => {
     window.localStorage.removeItem('userId');
     logout();
   }
-  return <button onClick={handleLogout}>Log out</button>;
+  return <button className="log-button" onClick={handleLogout}>Log out</button>;
 }
 
 export default LogoutButton

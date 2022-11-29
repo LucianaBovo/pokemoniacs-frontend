@@ -6,7 +6,7 @@ const BASE_URL = process.env.REACT_APP_FRONTEND_BASE_SERVER_URL;
 const ChatButton = () => {
     const { loginWithRedirect } = useAuth0();
 
-    return <button onClick={() => loginWithRedirect({ redirectUri: `${BASE_URL}/chat` })}>Chat</button>;
+    return <button className="btn btn-outline-danger" onClick={() => loginWithRedirect({ redirectUri: `${BASE_URL}/chat` })}>Contact seller</button>;
 }
 
 export default ChatButton

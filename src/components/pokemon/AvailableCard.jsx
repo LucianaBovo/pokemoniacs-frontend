@@ -38,6 +38,8 @@ useEffect(() => {
         <h4>{coinFormatter((card.price))}</h4>
         {/* {marketPrice} */}
       </div>
+      <div>
+      </div>
     </div>
   )
 }

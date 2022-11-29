@@ -8,9 +8,10 @@ const SearchForm = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [cards, setCards] = useState([]);
   const [category, setCategory] = useState([])
+
   const getCards = async () => {
     try {
-      if (searchTerm !== " ") {
+      if (searchTerm !== "") {
         const response = await fetch(
           `https://api.pokemontcg.io/v1/cards?name=${searchTerm}&types=${category || ''}`
         );
@@ -22,6 +23,7 @@ const SearchForm = () => {
       console.log(err);
     }
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     getCards();
@@ -53,7 +55,8 @@ const SearchForm = () => {
             return <PokeCard card={card} key={index} />;
           })}
         </div>
-        </div>
+        <PokeCategory onInputChange={handleCategoryChange} />
+      </div>
     </Layout>
   );
 };

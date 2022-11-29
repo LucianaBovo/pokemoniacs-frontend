@@ -7,6 +7,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 import "./CardDetail.css";
 import Layout from "../components/layout/Layout";
+import ChatButton from "../components/authorization/ChatButton";
 
 const CardDetail = () => {
   const [cardDetail, setCardDetail] = useState(null);
@@ -32,7 +33,9 @@ const CardDetail = () => {
             <h4>{coinFormatter(cardDetail.price)}</h4>
             <p>{cardDetail.condition.replaceAll("_", " ")}</p>
           </div>
-          <Link to={`/chat/${cardDetail.userId}`}> {isAuthenticated ? <div className="btn btn-outline-danger">Contact seller</div> : null} </Link>
+          {/* <Link to={`/chat/${cardDetail.userId}`}> <div className="btn btn-outline-danger">Contact seller</div> </Link> */}
+          <ChatButton/>
+          {/* <div className="btn btn-outline-danger">Contact seller</div> */}
           </div>
         </Layout>
     );
