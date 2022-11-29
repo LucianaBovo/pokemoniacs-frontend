@@ -55,7 +55,6 @@ const SearchForm = () => {
             return <PokeCard card={card} key={index} />;
           })}
         </div>
-        <PokeCategory onInputChange={handleCategoryChange} />
       </div>
     </Layout>
   );
