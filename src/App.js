@@ -17,13 +17,13 @@ const PrivateRoute = ({ pageComponent }) => {
 
   useEffect(() => {
     if (!isLoading && !isAuthenticated) {
-      navigate('/login');
+      navigate("/login");
     }
     // eslint-disable-next-line
   }, [isAuthenticated, isLoading]);
 
   return pageComponent;
-}
+};
 
 function App() {
   return (
@@ -37,9 +37,19 @@ function App() {
           <Route path="/cards/:id" element={<CardDetail />} />
 
           {/* Private Routes */}
-          <Route path="/searchform" element={<PrivateRoute pageComponent={<SearchForm />} />} />
-          <Route path="/chat" element={<PrivateRoute pageComponent={<ChatPage />} />} />
-          <Route path="/profile" element={<PrivateRoute pageComponent={<Profile />} />} />
+          <Route
+            path="/searchform"
+            element={<PrivateRoute pageComponent={<SearchForm />} />}
+          />
+          <Route path="/chat/:userId" element={<ChatRoomPage />} />
+          <Route
+            path="/chat"
+            element={<PrivateRoute pageComponent={<ChatPage />} />}
+          />
+          <Route
+            path="/profile"
+            element={<PrivateRoute pageComponent={<Profile />} />}
+          />
         </Routes>
       </BrowserRouter>
     </div>
