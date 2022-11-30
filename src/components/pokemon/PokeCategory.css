@@ -1,25 +1,23 @@
-/* .pokeCategory {
-    display: flex;
-justify-content:flex-start
+/* .pokemon-categories {
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+  margin-bottom: 20px;
 }
 
- .pokeCategory input {
-    display: none!important; 
+.pokeCategory {
+  display: flex;
+    justify-content: flex-start;
+  margin-right: 10px;
 }
 
-.pokeCategory input[type=checkbox] + label {
-    display: inline-block;
-    border-radius: 6px;
-    background: #dddddd;
-    height: 40px;
-    width: 30px;
-    margin-right: 3px;
-    line-height: 40px;
-    text-align: center;
-    cursor: pointer;
-  } 
-  
-  .pokeCategory input[type=checkbox]:checked + label {
-    background: #2AD705;
-    color: #ffffff;
-  }   */
+.pokeCategory span {
+  margin-left: 2px;
+}
+
+@media screen and (min-width: 1200px) { 
+  /* desktop */
+  .pokemon-categories {
+    /* max-width: 1200px; */
+  }
+

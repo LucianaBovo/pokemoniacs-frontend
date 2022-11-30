@@ -10,14 +10,19 @@ const getTypes = async () => {
 
 export const getCardsFromApi = async () => {
   try {
-    const { data } = await fetch('https://api.pokemontcg.io/v1/cards?pageSize=50');
-    console.log(data.json());
-    const response = await data.json();
-    for (let i = 0; i < response.cards.length; i++) {
-      console.log(data.cards[i].name)
+    const response = await fetch('https://api.pokemontcg.io/v1/cards?pageSize=50');
+    const cards = await response.json();
+    for (let i = 0; i < cards.length; i++) {
+      console.log(cards[i].name)
     }
   }
   catch (err) {
     console.log(err);
   }
+}
+
+export const getCardById = async (apiId) => {
+  const response = await fetch(`https://api.pokemontcg.io/v2/cards/${apiId}`);
+  const card = await response.json();
+  return card;
 }

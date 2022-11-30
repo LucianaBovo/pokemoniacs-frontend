@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import { getChatRooms } from "../api/ChatApi";
 import { Link } from "react-router-dom";
+import Layout from "../components/layout/Layout";
 
 function ChatPage() {
   const { getAccessTokenSilently } = useAuth0();
@@ -16,7 +17,7 @@ function ChatPage() {
   }, []);
 
   return (
-    <>
+    <Layout>
       {rooms.map((room, index) => {
         return (
           <div key={`room${index}`}>
@@ -24,7 +25,7 @@ function ChatPage() {
           </div>
         );
       })}
-    </>
+    </Layout>
   );
 }
 

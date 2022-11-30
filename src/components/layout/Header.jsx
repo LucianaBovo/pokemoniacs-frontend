@@ -1,45 +1,64 @@
+import { Button, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { useAuth0 } from "@auth0/auth0-react";
-// eslint-disable-next-line
-import { Link } from "react-router-dom";
-import AuthBox from "../authorization/AuthBox";
-import PlaceAd from "../authorization/PlaceAdButton";
-// eslint-disable-next-line
-import PokeCategory from "../pokemon/PokeCategory";
-// import ChatButton from '../authorization/ChatButton';
-// eslint-disable-next-line
-import { Nav, Navbar, NavDropdown } from "react-bootstrap";
+import LoginButton from "../authorization/LoginButton";
+import { useNavigate } from "react-router-dom";
 
 import "./Header.css";
+
 const Header = () => {
-  // eslint-disable-next-line
-  const { isAuthenticated } = useAuth0();
+  const { isAuthenticated, user, logout } = useAuth0();
+  const navigate = useNavigate();
+
+  const handleSellCardClick = () => {
+    navigate('/searchform');
+  };
+
+  const handleSelect = (eventKey) => {
+    if (eventKey === 'profile') {
+      navigate('/profile');
+    } else if (eventKey === 'chat') {
+      navigate('/chat');
+    } else if (eventKey === 'logout') {
+      window.localStorage.removeItem('userId');
+      logout();
+    }
+  }
+
   return (
-    <div>
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-        <Navbar.Brand href="/">
-          <div className="header__logo">
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/3/39/Pokeball.PNG"
-              width="40px"
-              height="40px"
-              alt="pokemon-logo"
-            />
-            <div className="header__logo">
-              <h2>Pokemoniacs</h2>
-            </div>
+    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+      <Navbar.Brand href="/">
+        <div className="header__logo">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/3/39/Pokeball.PNG"
+            width="40px"
+            height="40px"
+            alt="pokemon-logo"
+          />
+          <div className="header__text">
+            <h2>Pokemoniacs</h2>
           </div>
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="ms-auto navbar__desktop">
-            <Nav.Link href="/chat">Messages</Nav.Link>
-            <Nav.Link href="/searchform"><PlaceAd /></Nav.Link>
-            <Nav.Link href="/profile">my Profile</Nav.Link>
-            <Nav.Link href="/login"><AuthBox /></Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar>
-    </div>
+        </div>
+      </Navbar.Brand>
+      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      <Navbar.Collapse id="responsive-navbar-nav">
+        <Nav className="ms-auto navbar__desktop">
+          <Nav.Item>
+            <Button onClick={handleSellCardClick}>Sell card</Button>
+          </Nav.Item>
+          {isAuthenticated
+            ? <NavDropdown title={`${user.given_name}`} onSelect={handleSelect}>
+              <NavDropdown.Item eventKey="profile">Profile</NavDropdown.Item>
+              <NavDropdown.Item eventKey="chat">Messages</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item eventKey="logout">Logout</NavDropdown.Item>
+            </NavDropdown>
+            : <div className="unlogged-box">
+              <LoginButton />
+            </div>
+          }
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
   );
 };
 export default Header;

@@ -1,4 +1,29 @@
 
+.user-card-container {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 8px;
+  box-shadow: 0 4px 4px 0 rgb(0 0 0 / 20%), 0 4px 4px 0 rgb(0 0 0 / 19%);
+}
+
+.user-card-information {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-card-image {
+  width: 330px;
+  height: 495px;
+}
+
+.user-card-price-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .user-card-delete-button, .user-card-edit-button {
   cursor: pointer;
   margin-left: 8px;
@@ -20,4 +45,22 @@
 
 .edit-user-card-detail-form {
   margin-top: 20px;
+  margin-left: 8px;
+}
+
+@media screen and (min-width: 600px) { 
+  /* tablet */
+
+  .user-card-image {
+    width: 220px;
+    height: 330px;
+  }
+
+  .user-card-information {
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: 1000px) { 
+  /* desktop */
 }

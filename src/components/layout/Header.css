@@ -1,15 +1,27 @@
 .header {
-    height: 80px;
-    width: 100%;
-    border: 1px solid green;
-    display: flex;
-    justify-content: space-between;
+  height: 80px;
+  width: 100%;
+  border: 1px solid green;
+  display: flex;
+  justify-content: space-between;
 }
 
 .header__logo {
-    display: flex;
+  display: flex;
 }
 
-.header__link {
-    text-decoration: none;
+.header__text {
+  margin-left: 8px;
+}
+
+.unlogged-box {
+  margin-left: 10px;
+}
+
+
+@media screen and (min-width: 1200px) { 
+  .navbar{
+    padding-left: calc((100vw - 1200px) / 2);
+    padding-right: calc((100vw - 1200px) / 2);
+  }
 }

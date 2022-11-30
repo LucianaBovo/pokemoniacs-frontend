@@ -19,14 +19,14 @@ const PokeCategory = ({ onInputChange }) => {
     }, [])
 
     return (
-        <div className='pokeCategory' >
+        <div className="pokemon-categories">
             {categories.map((category, index) =>
-                <label key={index} >
-                  <span>{category}</span>        
-                    <input type="checkbox"  name="pokeCategory" value={category} onChange={onInputChange} />
+                <label key={index} className='pokeCategory'>
+                    <input type="checkbox" name="pokeCategory" value={category} onChange={onInputChange} />
+                    <span>{category}</span>
                 </label>
-             
             )}
+
         </div>
     )
 }

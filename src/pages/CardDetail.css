@@ -1,3 +1,66 @@
-.card-detail {
-  cursor: pointer;
+.card-detail-container {
+  display: flex;
+  margin: auto;
+}
+
+hr {
+  margin: 10px 0;
+}
+
+h4 {
+  text-align: start;
+  margin-top: 20px;
+}
+
+th, td {
+  text-align: start;
+}
+
+section {
+  margin-top: 24px;
+}
+
+.th-asking-price {
+  background-color: #10ba10 !important;
+}
+
+.td-asking-price {
+  background-color: #a9e6a9 !important;
+}
+
+.badge-wrapper {
+  font-size: 20px;
+}
+
+.loading-container {
+  margin-top: 40px;
+}
+
+@media screen and (min-width: 600px) { 
+  .card-detail-container {
+
+  }
+}
+
+@media screen and (min-width: 1200px) { 
+  .card-detail-container {
+    margin-top: 20px;
+    width: 1200px;
+  }
+
+  .left-box {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .right-box {
+    flex: 1;
+    margin-left: 36px;
+  }
+
+  .header-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }

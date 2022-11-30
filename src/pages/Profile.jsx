@@ -22,7 +22,6 @@ const Profile = () => {
   }, []);
 
   const removeCard = async (cardId) => {
-    console.log('clicado', cardId)
     const userId = window.localStorage.getItem('userId');
     await UsersApi.deleteCardForUser(cardId, userId);
     await fetchUserCards();
