@@ -4,7 +4,7 @@ import Alert from 'react-bootstrap/Alert';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import './profile/UserCard.css'
-import './profile/CardInfo.css'
+// import './profile/CardInfo.css'
 
 const CardInfo = ({ card, visible, setVisible }) => {
   const [price, setPrice] = useState("");
