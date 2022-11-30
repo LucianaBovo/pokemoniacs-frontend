@@ -10,19 +10,19 @@ const Header = () => {
   const navigate = useNavigate();
 
   const handleSellCardClick = () => {
-    navigate('/searchform');
+    navigate("/searchform");
   };
 
   const handleSelect = (eventKey) => {
-    if (eventKey === 'profile') {
-      navigate('/profile');
-    } else if (eventKey === 'chat') {
-      navigate('/chat');
-    } else if (eventKey === 'logout') {
-      window.localStorage.removeItem('userId');
-      logout();
+    if (eventKey === "profile") {
+      navigate("/profile");
+    } else if (eventKey === "chat") {
+      navigate("/chat");
+    } else if (eventKey === "logout") {
+      window.localStorage.removeItem("userId");
+      logout({ returnTo: window.location.origin });
     }
-  }
+  };
 
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -45,17 +45,18 @@ const Header = () => {
           <Nav.Item>
             <Button onClick={handleSellCardClick}>Sell card</Button>
           </Nav.Item>
-          {isAuthenticated
-            ? <NavDropdown title={`${user.given_name}`} onSelect={handleSelect}>
+          {isAuthenticated ? (
+            <NavDropdown title={`${user.given_name}`} onSelect={handleSelect}>
               <NavDropdown.Item eventKey="profile">Profile</NavDropdown.Item>
               <NavDropdown.Item eventKey="chat">Messages</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item eventKey="logout">Logout</NavDropdown.Item>
             </NavDropdown>
-            : <div className="unlogged-box">
+          ) : (
+            <div className="unlogged-box">
               <LoginButton />
             </div>
-          }
+          )}
         </Nav>
       </Navbar.Collapse>
     </Navbar>
