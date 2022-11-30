@@ -28,8 +28,10 @@ const ChatRoomPage = () => {
       }
 
       setSocket(
-        io.connect(process.env.REACT_APP_BACKEND_BASE_SERVER_URL, {
+        io(process.env.REACT_APP_BACKEND_BASE_SERVER_URL, {
           query: { accessToken },
+          // This will make it work with PM2
+          transports: ["websocket"],
         })
       );
 
