@@ -5,6 +5,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import './profile/UserCard.css'
 import './profile/CardInfo.css'
+
 const CardInfo = ({ card, visible, setVisible }) => {
   const [price, setPrice] = useState("");
   const [condition, setCondition] = useState("");
