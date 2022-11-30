@@ -13,7 +13,7 @@ const SearchForm = () => {
 
   const getCards = async () => {
     try {
-      if (searchTerm !== "") {
+      if (searchTerm !== " ") {
         const response = await fetch(
           `https://api.pokemontcg.io/v1/cards?name=${searchTerm}&types=${category || ''}`
         );
