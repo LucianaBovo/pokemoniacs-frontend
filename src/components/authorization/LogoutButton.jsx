@@ -1,13 +1,17 @@
-import React from 'react'
-import { useAuth0 } from '@auth0/auth0-react';
+import React from "react";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const LogoutButton = () => {
   const { logout } = useAuth0();
   const handleLogout = () => {
-    window.localStorage.removeItem('userId');
-    logout();
-  }
-  return <button className="log-button" onClick={handleLogout}>Log out</button>;
-}
+    window.localStorage.removeItem("userId");
+    logout({ returnTo: window.location.origin });
+  };
+  return (
+    <button className="log-button" onClick={handleLogout}>
+      Log out
+    </button>
+  );
+};
 
-export default LogoutButton
+export default LogoutButton;
