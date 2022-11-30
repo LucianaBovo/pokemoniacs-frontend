@@ -4,7 +4,6 @@ import Alert from 'react-bootstrap/Alert';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import './profile/UserCard.css'
-// import './profile/CardInfo.css'
 
 const CardInfo = ({ card, visible, setVisible }) => {
   const [price, setPrice] = useState("");
@@ -36,33 +35,32 @@ const CardInfo = ({ card, visible, setVisible }) => {
   }, [success]);
 
   const handleChange = (e) => {
-    console.log(e);
     setPrice(e.target.value);
   };
   const handleCondition = (e) => {
-    console.log(e);
     setCondition(e.target.value);
   };
+
   return (
     <div className="card-info-form-container">
-      <h2>{card.name}</h2>
+      <h3>{card.name}</h3>
       {success ? <Alert variant="success">Success! Card added to your selling list!</Alert>
         : (
           <Form className="card-info-form" >
-            <Form.Group className="mb-3">
+            <Form.Group className="mb-2">
               <Form.Control type="number" placeholder=" Enter price" id="enter-card-price"
                 onChange={handleChange}
                 value={price} />
             </Form.Group>
-            <Form.Group className="mb-3">
-              <Form.Select className="mb-3" onChange={handleCondition} value={condition}>
+            <Form.Group className="mb-2">
+              <Form.Select className="mb-2" onChange={handleCondition} value={condition}>
                 <option value="">Select the card condition</option>
                 <option value="MINT">Mint</option>
                 <option value="AS_GOOD_AS_NEW">As good as new</option>
                 <option value="USED">Used</option>
               </Form.Select>
             </Form.Group>
-            <Button variant="outline-secondary" disabled={submitDisabled} onClick={postCard}>Confirm</Button>
+            <Button variant="primary" disabled={submitDisabled} onClick={postCard}>Confirm</Button>
           </Form>
         )}
     </div>

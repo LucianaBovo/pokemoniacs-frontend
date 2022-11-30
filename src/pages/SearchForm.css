@@ -1,6 +1,7 @@
 .app__cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 20px;
 }
 
 .searchform {
@@ -11,4 +12,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.types-select {
+  width: 200px;
+  margin-right: 8px;
+}
+
+.empty-state {
+  margin-top: 20px;
 }
