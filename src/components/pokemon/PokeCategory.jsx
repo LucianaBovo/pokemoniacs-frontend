@@ -18,20 +18,17 @@ const PokeCategory = ({ onInputChange }) => {
     getCategories()
   }, [])
 
-  return (
-    <div className="pokemon-categories">
-      {/* <select onChange={onInputChange} > */}
-      {categories.map((category, index) =>
-        <label key={index} className='pokeCategory'>
-          {/* // <option key = {index} >{category} */}
-          <input type="checkbox" name="pokeCategory" value={category} onChange={onInputChange} />
-          <span>{category}</span>
-        </label>
-        // </option>
-      )}
-      {/* </select> */}
-    </div>
-  )
+    return (
+        <div className="pokemon-categories">
+            {categories.map((category, index) =>
+                <label key={index} className='pokeCategory'>
+                    <input type="checkbox" name="pokeCategory" value={category} onChange={onInputChange} />
+                    <span>{category}</span>
+                </label>
+            )}
+
+        </div>
+    )
 }
 
 export default PokeCategory

@@ -7,8 +7,9 @@ import Layout from "../components/layout/Layout";
 import "./Home.css";
 
 const Home = () => {
-  const [searchTerm, setSearchTerm] = useState('');
   const [availableCards, setAvailableCards] = useState([]);
+const [searchTerm, setSearchTerm] = useState('');
+const [matchedcards, setMatchedCards] = useState([]);
 
   const handleSearch = async (e) => {
     e.preventDefault();

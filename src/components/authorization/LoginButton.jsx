@@ -2,7 +2,7 @@ import React from "react";
 import Button from 'react-bootstrap/Button';
 import { useAuth0 } from "@auth0/auth0-react";
 
-// const BASE_URL = process.env.REACT_APP_FRONTEND_BASE_SERVER_URL;
+const BASE_URL = process.env.REACT_APP_FRONTEND_BASE_SERVER_URL;
 
 const LoginButton = () => {
   const { loginWithRedirect } = useAuth0();
@@ -11,7 +11,7 @@ const LoginButton = () => {
       variant="secondary"
       onClick={() =>
         loginWithRedirect({
-          redirectUri: `${window.location.origin}/afterlogin`,
+          redirectUri: `${BASE_URL}/afterlogin`,
         })
       }
     >

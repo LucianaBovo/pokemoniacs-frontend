@@ -7,9 +7,9 @@
 
 .pokeCategory {
   display: flex;
-  /* grid-template-columns: 1fr 1fr 1fr; */
   justify-content: flex-start;
-  margin-right: 10px;
+  justify-content: flex-start;
+
 }
 
 .pokeCategory span {
@@ -21,4 +21,5 @@
   .pokemon-categories {
     /* max-width: 1200px; */
   }
+
 }
