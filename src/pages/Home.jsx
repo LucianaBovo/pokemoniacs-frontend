@@ -8,8 +8,9 @@ import "./Home.css";
 
 const Home = () => {
   const [availableCards, setAvailableCards] = useState([]);
-const [searchTerm, setSearchTerm] = useState('');
-const [matchedcards, setMatchedCards] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
+  // const [queryParam, setQueryParam] = useState('');
+  const [matchedcards, setMatchedCards] = useState([]);
 
   const handleSearch = async (e) => {
     e.preventDefault();
