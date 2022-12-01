@@ -13,7 +13,7 @@ const AvailableCard = ({ card }) => {
   return (
     <div className="available-card-container" onClick={handleClick}>
       <div className="available-card-information">
-        <img className="available-card-image" src={card.picture} alt={card.name} />
+        <img className="available-card-image" src={card.picture} alt={card.name}/>
         <h4 className="h4-card-name">{card.name}</h4>
         <div className="available-card-price-container">
           <h5 className="h5-price">{coinFormatter((card.price))}</h5>

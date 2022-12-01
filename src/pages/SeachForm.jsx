@@ -26,7 +26,7 @@ const SearchForm = () => {
       const response = await fetch(`https://api.pokemontcg.io/v1/cards?name=${searchTerm}&types=${types}&page=${page}&pageSize=12`);
       const data = await response.json();
       setCards(data.cards);
-      setLastPage(100)
+      // setLastPage(lastpage)
      
     } catch (error) {
       console.log(error);

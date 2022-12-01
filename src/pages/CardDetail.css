@@ -1,6 +1,13 @@
 .card-detail-container {
   display: flex;
   margin: auto;
+  flex-direction: column;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.right-box {
+  margin: 8px;
 }
 
 hr {
@@ -28,8 +35,14 @@ section {
   background-color: #a9e6a9 !important;
 }
 
+.types-container {
+  display: flex;
+  justify-content: center;
+}
+
 .badge-wrapper {
   font-size: 20px;
+  margin-right: 8px;
 }
 
 .loading-container {
@@ -38,12 +51,20 @@ section {
 
 @media screen and (min-width: 600px) { 
   .card-detail-container {
+  }
 
+  .right-box {
+    flex: 1;
+  }
+
+  .table {
+    padding: 0.5rem, 0.5rem;
   }
 }
 
 @media screen and (min-width: 1200px) { 
   .card-detail-container {
+    flex-direction: row;
     margin-top: 20px;
     width: 1200px;
   }
@@ -62,5 +83,9 @@ section {
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  .header-info h2 {
+    margin-bottom: 0;
   }
 }

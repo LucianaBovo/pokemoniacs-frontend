@@ -9,13 +9,16 @@ const UserCardsList = ({ cards, removeCard }) => {
   }
 
   return (
-    <div className="user-card-list">
-      {cards.map((card) => {
-        return <UserCard
-          card={card}
-          key={card.id}
-          onRemoveCard={removeCard} />
-      })}
+    <div>
+      <hr />
+      <section className="user-card-list">
+        {cards.map((card) => {
+          return <UserCard
+            card={card}
+            key={card.id}
+            onRemoveCard={removeCard} />
+        })}
+      </section>
     </div>
   )
 }

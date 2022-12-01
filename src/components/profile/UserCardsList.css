@@ -1,26 +1,41 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
 .user-card-list {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 8px;
+  gap: 16px;
   margin: auto;
+  margin-top:16px;
+  margin-bottom: 16px;
 }
 
-
-@media screen and (min-width: 600px) { 
+@media screen and (min-width: 680px) { 
   /* tablet */
   .user-card-list {
-    display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 16px;
+    width: 700px;
   }
   
 }
 
-@media screen and (min-width: 1000px) { 
+@media screen and (min-width: 900px) { 
+  /* tablet */
+  .user-card-list {
+    grid-template-columns: 1fr 1fr 1fr;
+    width:800px;
+  }
+  
+}
+
+
+
+@media screen and (min-width: 1200px) { 
   /* desktop */
   .user-card-list {
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 32px;
     width: 1200px;
   }
 }
