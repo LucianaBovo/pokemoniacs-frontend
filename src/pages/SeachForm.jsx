@@ -23,7 +23,7 @@ const SearchForm = () => {
       if (selectedCategories.length < POKEMON_TYPES.length) {
         types = selectedCategories.map((item) => item.value).join(',');
       }
-      const response = await fetch(`https://api.pokemontcg.io/v1/cards?name=${searchTerm}&types=${types}&page=${page}&pageSize=12`);
+      const response = await fetch(`https://api.pokemontcg.io/v1/cards?name=${searchTerm}&types=${types}`);
       const data = await response.json();
       setCards(data.cards);
       // setLastPage(lastpage)
