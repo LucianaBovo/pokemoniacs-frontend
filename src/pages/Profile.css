@@ -3,6 +3,9 @@
   border-radius: 50%;
 
 }
+.profile-user-information-container {
+  margin: 24px;
+}
 
 .profile-picture-container {
   margin: 8px;

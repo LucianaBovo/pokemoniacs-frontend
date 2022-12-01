@@ -9,8 +9,6 @@ import "./Home.css";
 const Home = () => {
   const [availableCards, setAvailableCards] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
-  // const [queryParam, setQueryParam] = useState('');
-  const [matchedcards, setMatchedCards] = useState([]);
 
   const handleSearch = async (e) => {
     e.preventDefault();
@@ -36,7 +34,7 @@ const Home = () => {
       <div className="home__search-bar">
         <form className="home-search-form" onSubmit={handleSearch}>
           <input type="text" className="form-control search-home-input" placeholder="Search..." onChange={handleInputChange} value={searchTerm}></input>
-          <button type="submit" className="home-search-form-button btn btn-danger"><SearchIcon width={24} height={24} /></button>
+          <button type="submit" className="home-search-form-button btn btn-danger">Search</button>
         </form>
       </div>
       <AvailableCardList cards={availableCards} />

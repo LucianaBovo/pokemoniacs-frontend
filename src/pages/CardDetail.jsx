@@ -65,7 +65,7 @@ const CardDetail = () => {
           <hr />
           <section className="details-section">
             <h4>Card details</h4>
-            <Table>
+            <Table responsive="md">
               <thead>
                 <tr>
                   <th>Series</th>
@@ -89,7 +89,7 @@ const CardDetail = () => {
 
           <section className="details-section">
             <h4>Item info</h4>
-            <Table>
+            <Table responsive="md">
               <thead>
                 <tr>
                   <th>Condition</th>
@@ -109,7 +109,7 @@ const CardDetail = () => {
 
           <section className="prices-section">
             <h4>Selling info</h4>
-            <Table>
+            <Table responsive="md">
               <thead>
                 <tr>
                   <th>Normal market</th>
