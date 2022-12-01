@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import PokeCard from "../components/PokeCard";
 import PokeCardList from "../components/PokeCardList";
 import "./SearchForm.css";
 import Layout from "../components/layout/Layout";
@@ -21,7 +20,6 @@ const SearchForm = () => {
       if (selectedCategories.length < POKEMON_TYPES.length) {
         types = selectedCategories.map((item) => item.value).join(',');
       }
-
       const response = await fetch(`https://api.pokemontcg.io/v1/cards?name=${searchTerm}&types=${types}`);
       const data = await response.json();
       setCards(data.cards);

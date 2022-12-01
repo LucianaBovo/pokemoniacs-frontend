@@ -1,6 +1,13 @@
 .card-detail-container {
   display: flex;
   margin: auto;
+  flex-direction: column;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.table {
+  padding: 0.2rem, 0.2em;
 }
 
 hr {
@@ -38,12 +45,20 @@ section {
 
 @media screen and (min-width: 600px) { 
   .card-detail-container {
+  }
 
+  .right-box {
+    flex: 1;
+  }
+
+  .table {
+    padding: 0.5rem, 0.5rem;
   }
 }
 
 @media screen and (min-width: 1200px) { 
   .card-detail-container {
+    flex-direction: row;
     margin-top: 20px;
     width: 1200px;
   }
