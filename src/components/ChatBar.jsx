@@ -13,12 +13,9 @@ function ChatBar({ onSendMessage }) {
       <div className="row">
         <form className="was-validated" onSubmit={(e) => sendMessage(e)}>
           <div className="col-12 mb-2">
-            <label htmlFor="sendMessage" className="form-label fw-bold">
-              Send Message:
-            </label>
             <input
               type="text"
-              className="form-control"
+              className="form-control mt-3"
               id="sendMessage"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
