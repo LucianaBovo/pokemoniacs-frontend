@@ -76,13 +76,13 @@ const UserCard = ({ card, onRemoveCard }) => {
             </div>
             <Form className='edit-user-card-detail-form'>
               <Form.Group className="mb-3">
-                <Form.Label htmlFor="edit-select-status">Edit price</Form.Label>
+                <Form.Label htmlFor="edit-select-status">Price</Form.Label>
                 <Form.Control type="number" placeholder="price" id="edit-input-price"
                   onChange={handlePrice}
                   value={price} />
               </Form.Group>
               <Form.Group className="mb-3">
-                <Form.Label htmlFor="edit-select-status">Edit status</Form.Label>
+                <Form.Label htmlFor="edit-select-status">Status</Form.Label>
                 <Form.Select id="edit-select-status" onChange={handleStatus} value={status}>
                   <option value="">Select the card status</option>
                   <option value="AVAILABLE">Available</option>
@@ -91,7 +91,7 @@ const UserCard = ({ card, onRemoveCard }) => {
                 </Form.Select>
               </Form.Group>
               <Form.Group className="mb-3">
-                <Form.Label htmlFor="edit-select-condition">Edit condition</Form.Label>
+                <Form.Label htmlFor="edit-select-condition">Condition</Form.Label>
                 <Form.Select id="edit-select-condition" onChange={handleCondition} value={condition}>
                   <option value="">Select the card condition</option>
                   <option value="NEW">Mint</option>
@@ -112,9 +112,9 @@ const UserCard = ({ card, onRemoveCard }) => {
       <div className="user-card-container">
         <div className="user-card-information">
           <img className="user-card-image" src={card.picture} alt={card.name} />
-          <h3>{card.name}</h3>
+          <h4 className='user-card-name'>{card.name}</h4>
           <div className="user-card-price-container">
-              <h4>{coinFormatter((card.price))}</h4>
+              <h4 className='user-card-name'>{coinFormatter((card.price))}</h4>
           </div>
           <div className='user-card-buttons-container'>
             <Button variant="outline-secondary" onClick={handleEditShow} className="user-card-edit-button">Edit</Button>
@@ -122,19 +122,6 @@ const UserCard = ({ card, onRemoveCard }) => {
           </div>
         </div>
       </div>
-
-
-      {/* <div>
-        <img src={card.picture} alt={card.name} />
-        <h3>{card.name}</h3>
-        <div className='price-container'>
-          <h4>{coinFormatter((card.price))}</h4>
-        </div>
-        <div className='user-card-buttons-container'>
-          <Button variant="outline-secondary" onClick={handleEditShow} className="user-card-edit-button">Edit</Button>
-          <Button variant="outline-danger" onClick={handleDeleteShow} className="user-card-delete-button">Delete</Button>
-        </div>
-      </div> */}
     </div>
   )
 }

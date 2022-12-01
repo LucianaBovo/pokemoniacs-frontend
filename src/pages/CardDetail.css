@@ -6,8 +6,8 @@
   margin-bottom: 16px;
 }
 
-.table {
-  padding: 0.2rem, 0.2em;
+.right-box {
+  margin: 8px;
 }
 
 hr {
@@ -35,8 +35,14 @@ section {
   background-color: #a9e6a9 !important;
 }
 
+.types-container {
+  display: flex;
+  justify-content: center;
+}
+
 .badge-wrapper {
   font-size: 20px;
+  margin-right: 8px;
 }
 
 .loading-container {
@@ -77,5 +83,9 @@ section {
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  .header-info h2 {
+    margin-bottom: 0;
   }
 }

@@ -33,12 +33,13 @@ const Profile = () => {
 
   return (
     <Layout>
-      <div className='profile-picture-container'>
-      <img className="profile-picture" src={user.picture} alt={user.name} />
-      </div>
-      <h2> {user.name} </h2>
-      {/* <p> {user.email}</p> */}
-      <UserCardsList removeCard={removeCard} cards={userCards} />
+      <section className='profile-user-information-container'>
+        <div className='profile-picture-container'>
+          <img className="profile-picture" src={user.picture} alt={user.name} />
+        </div>
+        <h2> {user.name} </h2>
+      </section>
+        <UserCardsList removeCard={removeCard} cards={userCards} />
     </Layout>
   )
 }
