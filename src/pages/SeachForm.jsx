@@ -7,10 +7,12 @@ import Layout from "../components/layout/Layout";
 import { ReactComponent as SearchIcon } from '../assets/searchIcon2.svg';
 import { MultiSelect } from "react-multi-select-component";
 import { POKEMON_TYPES } from "../utils/constants";
-
+import Pagination from "../components/Pagination";
 const SearchForm = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [cards, setCards] = useState([]);
+  const [page, setPage] = useState(1);
+  const [lastPage, setLastPage] = useState(0);
 
   const selectOptions = POKEMON_TYPES.map(item => ({ label: item, value: item }));
   const [selectedCategories, setCategories] = useState(selectOptions);
@@ -21,10 +23,11 @@ const SearchForm = () => {
       if (selectedCategories.length < POKEMON_TYPES.length) {
         types = selectedCategories.map((item) => item.value).join(',');
       }
-
-      const response = await fetch(`https://api.pokemontcg.io/v1/cards?name=${searchTerm}&types=${types}`);
+      const response = await fetch(`https://api.pokemontcg.io/v1/cards?name=${searchTerm}&types=${types}&page=${page}&pageSize=12`);
       const data = await response.json();
       setCards(data.cards);
+      setLastPage(100)
+     
     } catch (error) {
       console.log(error);
     }
@@ -33,7 +36,7 @@ const SearchForm = () => {
   useEffect(() => {
     fetchCards();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [searchTerm]);
 
   useEffect(() => {
     fetchCards();
@@ -60,7 +63,9 @@ const SearchForm = () => {
             type="text"
             className="form-control search-home-input"
             placeholder="search for cards..."
-            onChange={(e) => setSearchTerm(e.target.value)}
+            onChange={(e) => {
+              setSearchTerm(e.target.value);
+              setPage(1)}}
             value={searchTerm}
           />
           <button type="submit" className="home-search-form-button btn btn-danger">
@@ -68,6 +73,7 @@ const SearchForm = () => {
           </button>
         </form>
         <PokeCardList cards={cards} />
+        <Pagination page={page} lastPage={lastPage} setPage={setPage} />
       </div>
     </Layout>
   );
