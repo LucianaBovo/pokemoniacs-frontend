@@ -1,5 +1,11 @@
 
+* {
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
 .user-card-container {
+  margin: 8px;
   border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
@@ -9,14 +15,17 @@
 
 .user-card-information {
   align-items: center;
-  cursor: pointer;
   display: flex;
   flex-direction: column;
 }
 
 .user-card-image {
-  width: 330px;
-  height: 495px;
+  width: 220px;
+  height: 330px;
+}
+
+.user-card-name {
+  margin-top: 8px;
 }
 
 .user-card-price-container {
@@ -48,7 +57,16 @@
   margin-left: 8px;
 }
 
-@media screen and (min-width: 600px) { 
+
+@media screen and (min-width: 300px) { 
+  .user-card-image {
+    width: 330px;
+    height: 495px;
+  }
+}
+
+
+@media screen and (min-width: 680px) { 
   /* tablet */
 
   .user-card-image {

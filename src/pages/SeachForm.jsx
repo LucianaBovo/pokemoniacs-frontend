@@ -3,7 +3,6 @@ import { useState } from "react";
 import PokeCardList from "../components/PokeCardList";
 import "./SearchForm.css";
 import Layout from "../components/layout/Layout";
-import { ReactComponent as SearchIcon } from '../assets/searchIcon2.svg';
 import { MultiSelect } from "react-multi-select-component";
 import { POKEMON_TYPES } from "../utils/constants";
 
@@ -62,7 +61,7 @@ const SearchForm = () => {
             value={searchTerm}
           />
           <button type="submit" className="home-search-form-button btn btn-danger">
-            <SearchIcon width={24} height={24} />
+            Search
           </button>
         </form>
         <PokeCardList cards={cards} />
