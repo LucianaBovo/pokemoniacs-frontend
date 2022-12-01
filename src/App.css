@@ -1,6 +1,6 @@
- * {
+* {
   box-sizing: border-box;
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
 }
 
 .App {
@@ -18,4 +18,3 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-

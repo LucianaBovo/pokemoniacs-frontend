@@ -1,9 +1,10 @@
 * {
   box-sizing: border-box;
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
 }
 
 .available-card-container {
+  margin: 0px 20px;
   border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
@@ -36,7 +37,7 @@
   margin-top: 0;
 }
 
-@media screen and (min-width: 600px) { 
+@media screen and (min-width: 600px) {
   /* tablet */
 
   .available-card-image {
@@ -49,6 +50,6 @@
   }
 }
 
-@media screen and (min-width: 1000px) { 
+@media screen and (min-width: 1000px) {
   /* desktop */
 }

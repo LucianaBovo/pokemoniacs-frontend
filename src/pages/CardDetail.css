@@ -17,9 +17,11 @@ hr {
 h4 {
   text-align: start;
   margin-top: 20px;
+  margin-left: 20px;
 }
 
-th, td {
+th,
+td {
   text-align: start;
 }
 
@@ -43,7 +45,7 @@ section {
   margin-top: 40px;
 }
 
-@media screen and (min-width: 600px) { 
+@media screen and (min-width: 600px) {
   .card-detail-container {
   }
 
@@ -56,7 +58,7 @@ section {
   }
 }
 
-@media screen and (min-width: 1200px) { 
+@media screen and (min-width: 1200px) {
   .card-detail-container {
     flex-direction: row;
     margin-top: 20px;
