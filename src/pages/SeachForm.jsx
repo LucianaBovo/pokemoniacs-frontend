@@ -73,7 +73,7 @@ const SearchForm = () => {
           </button>
         </form>
         <PokeCardList cards={cards} />
-        <Pagination page={page} lastPage={lastPage} setPage={setPage} />
+        {/* <Pagination page={page} lastPage={lastPage} setPage={setPage} /> */}
       </div>
     </Layout>
   );
