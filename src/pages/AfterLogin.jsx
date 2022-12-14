@@ -6,7 +6,7 @@ import * as UsersApi from '../api/UsersApi';
 const AfterLogin = () => {
   const navigate = useNavigate();
   const { user, isAuthenticated } = useAuth0();
-
+//changes here
   useEffect(() => {
     const checkUser = async () => {
       if (isAuthenticated) {
